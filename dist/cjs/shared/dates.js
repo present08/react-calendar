@@ -354,7 +354,8 @@ function isWeekend(date, calendarType) {
             return weekday === FRIDAY || weekday === SATURDAY;
         case const_js_1.CALENDAR_TYPES.ISO_8601:
         case const_js_1.CALENDAR_TYPES.GREGORY:
-            return weekday === SATURDAY || weekday === SUNDAY;
+            if (weekday === SATURDAY) return 'Saturday'
+            else if (weekday === SUNDAY) return 'Sunday'
         default:
             throw new Error('Unsupported calendar type.');
     }

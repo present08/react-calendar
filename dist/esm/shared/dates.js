@@ -1,4 +1,4 @@
-import { getYear, getMonth as getMonthIndex, getCenturyStart, getPreviousCenturyStart, getNextCenturyStart, getCenturyEnd, getPreviousCenturyEnd, getCenturyRange, getDecadeStart, getPreviousDecadeStart, getNextDecadeStart, getDecadeEnd, getPreviousDecadeEnd, getDecadeRange, getYearStart, getPreviousYearStart, getNextYearStart, getYearEnd, getPreviousYearEnd, getYearRange, getMonthStart, getPreviousMonthStart, getNextMonthStart, getMonthEnd, getPreviousMonthEnd, getMonthRange, getDayStart, getDayEnd, getDayRange, } from '@wojtekmaj/date-utils';
+import { getCenturyEnd, getCenturyRange, getCenturyStart, getDayEnd, getDayRange, getDayStart, getDecadeEnd, getDecadeRange, getDecadeStart, getMonthEnd, getMonth as getMonthIndex, getMonthRange, getMonthStart, getNextCenturyStart, getNextDecadeStart, getNextMonthStart, getNextYearStart, getPreviousCenturyEnd, getPreviousCenturyStart, getPreviousDecadeEnd, getPreviousDecadeStart, getPreviousMonthEnd, getPreviousMonthStart, getPreviousYearEnd, getPreviousYearStart, getYear, getYearEnd, getYearRange, getYearStart, } from '@wojtekmaj/date-utils';
 import { CALENDAR_TYPES, WEEKDAYS } from './const.js';
 import { formatYear as defaultFormatYear } from './dateFormatter.js';
 var SUNDAY = WEEKDAYS[0];
@@ -333,7 +333,8 @@ export function isWeekend(date, calendarType) {
             return weekday === FRIDAY || weekday === SATURDAY;
         case CALENDAR_TYPES.ISO_8601:
         case CALENDAR_TYPES.GREGORY:
-            return weekday === SATURDAY || weekday === SUNDAY;
+            if (weekday === SATURDAY) return 'Saturday'
+            else if (weekday === SUNDAY) return 'Sunday'
         default:
             throw new Error('Unsupported calendar type.');
     }
