@@ -1,33 +1,33 @@
 import {
-  getYear,
-  getMonth as getMonthIndex,
-  getCenturyStart,
-  getPreviousCenturyStart,
-  getNextCenturyStart,
   getCenturyEnd,
-  getPreviousCenturyEnd,
   getCenturyRange,
-  getDecadeStart,
-  getPreviousDecadeStart,
-  getNextDecadeStart,
-  getDecadeEnd,
-  getPreviousDecadeEnd,
-  getDecadeRange,
-  getYearStart,
-  getPreviousYearStart,
-  getNextYearStart,
-  getYearEnd,
-  getPreviousYearEnd,
-  getYearRange,
-  getMonthStart,
-  getPreviousMonthStart,
-  getNextMonthStart,
-  getMonthEnd,
-  getPreviousMonthEnd,
-  getMonthRange,
-  getDayStart,
+  getCenturyStart,
   getDayEnd,
   getDayRange,
+  getDayStart,
+  getDecadeEnd,
+  getDecadeRange,
+  getDecadeStart,
+  getMonthEnd,
+  getMonth as getMonthIndex,
+  getMonthRange,
+  getMonthStart,
+  getNextCenturyStart,
+  getNextDecadeStart,
+  getNextMonthStart,
+  getNextYearStart,
+  getPreviousCenturyEnd,
+  getPreviousCenturyStart,
+  getPreviousDecadeEnd,
+  getPreviousDecadeStart,
+  getPreviousMonthEnd,
+  getPreviousMonthStart,
+  getPreviousYearEnd,
+  getPreviousYearStart,
+  getYear,
+  getYearEnd,
+  getYearRange,
+  getYearStart,
 } from '@wojtekmaj/date-utils';
 
 import { CALENDAR_TYPES, WEEKDAYS } from './const.js';
@@ -409,16 +409,18 @@ export function isCurrentDayOfWeek(date: Date): boolean {
 export function isWeekend(
   date: Date,
   calendarType: CalendarType = CALENDAR_TYPES.ISO_8601,
-): boolean {
+): String {
   const weekday = date.getDay();
 
   switch (calendarType) {
     case CALENDAR_TYPES.ISLAMIC:
     case CALENDAR_TYPES.HEBREW:
-      return weekday === FRIDAY || weekday === SATURDAY;
+      // return weekday === FRIDAY || weekday === SATURDAY;
+      return 'String'
     case CALENDAR_TYPES.ISO_8601:
     case CALENDAR_TYPES.GREGORY:
-      return weekday === SATURDAY || weekday === SUNDAY;
+      if (weekday === SATURDAY) return 'Saturday'
+      else if (weekday === SUNDAY) return 'Sunday'
     default:
       throw new Error('Unsupported calendar type.');
   }

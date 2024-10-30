@@ -1,12 +1,12 @@
-import { getDayStart, getDayEnd } from '@wojtekmaj/date-utils';
+import { getDayEnd, getDayStart } from '@wojtekmaj/date-utils';
 
 import Tile from '../Tile.js';
 
-import { isWeekend } from '../shared/dates.js';
 import {
   formatDay as defaultFormatDay,
   formatLongDate as defaultFormatLongDate,
 } from '../shared/dateFormatter.js';
+import { isWeekend } from '../shared/dates.js';
 
 import type { CalendarType } from '../shared/types.js';
 
@@ -58,8 +58,10 @@ export default function Day({
     classesProps.push(className);
   }
 
-  if (isWeekend(date, calendarType)) {
-    classesProps.push(`${className}--weekend`);
+  if (isWeekend(date, calendarType) === 'Saturday') {
+    classesProps.push(`${className}--saturday`);
+  } else if (isWeekend(date, calendarType) === 'Sunday') {
+    classesProps.push(`${className}--sunday`);
   }
 
   if (date.getMonth() !== currentMonthIndex) {
