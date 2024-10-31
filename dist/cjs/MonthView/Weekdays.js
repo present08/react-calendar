@@ -22,7 +22,7 @@ function Weekdays(props) {
     for (var weekday = 1; weekday <= 7; weekday += 1) {
         var weekdayDate = new Date(year, monthIndex, weekday - (0, dates_js_1.getDayOfWeek)(beginOfMonth, calendarType));
         var abbr = formatWeekday(locale, weekdayDate);
-        weekdays.push((0, jsx_runtime_1.jsx)("div", { className: (0, clsx_1.default)(weekdayClassName, (0, dates_js_1.isCurrentDayOfWeek)(weekdayDate) && "".concat(weekdayClassName, "--current"), (0, dates_js_1.isWeekend)(weekdayDate, calendarType) && "".concat(weekdayClassName, "--weekend")), children: (0, jsx_runtime_1.jsx)("abbr", { "aria-label": abbr, title: abbr, children: formatShortWeekday(locale, weekdayDate).replace('.', '') }) }, weekday));
+        weekdays.push((0, jsx_runtime_1.jsx)("div", { className: (0, clsx_1.default)(weekdayClassName, (0, dates_js_1.isCurrentDayOfWeek)(weekdayDate) && "".concat(weekdayClassName, "--current"), (0, dates_js_1.isWeekend)(weekdayDate, calendarType) === 'Saturday' ? "".concat(weekdayClassName, "--saturday")), children: (0, jsx_runtime_1.jsx)("abbr", { "aria-label": abbr, title: abbr, children: formatShortWeekday(locale, weekdayDate).replace('.', '') }) }, weekday));
     }
     return ((0, jsx_runtime_1.jsx)(Flex_js_1.default, { className: className, count: 7, onFocus: onMouseLeave, onMouseOver: onMouseLeave, children: weekdays }));
 }
