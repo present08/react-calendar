@@ -322,7 +322,7 @@ export function isCurrentDayOfWeek(date) {
  *
  * @param {Date} date Date.
  * @param {CalendarType} [calendarType="iso8601"] Calendar type.
- * @returns {boolean} Whether a given date is a weekend day.
+ * @returns {string} Whether a given date is a weekend day.
  */
 export function isWeekend(date, calendarType) {
     if (calendarType === void 0) { calendarType = CALENDAR_TYPES.ISO_8601; }

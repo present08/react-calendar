@@ -343,7 +343,7 @@ function isCurrentDayOfWeek(date) {
  *
  * @param {Date} date Date.
  * @param {CalendarType} [calendarType="iso8601"] Calendar type.
- * @returns {String} Whether a given date is a weekend day.
+ * @returns {string} Whether a given date is a weekend day.
  */
 function isWeekend(date, calendarType) {
     if (calendarType === void 0) { calendarType = const_js_1.CALENDAR_TYPES.ISO_8601; }

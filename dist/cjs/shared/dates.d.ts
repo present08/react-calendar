@@ -146,6 +146,6 @@ export declare function isCurrentDayOfWeek(date: Date): boolean;
  *
  * @param {Date} date Date.
  * @param {CalendarType} [calendarType="iso8601"] Calendar type.
- * @returns {String} Whether a given date is a weekend day.
+ * @returns {string} Whether a given date is a weekend day.
  */
-export declare function isWeekend(date: Date, calendarType?: CalendarType): String;
+export declare function isWeekend(date: Date, calendarType?: CalendarType): string;
